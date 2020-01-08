@@ -13,9 +13,14 @@
 		6956E49B23C61B360042697E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6956E49923C61B360042697E /* Main.storyboard */; };
 		6956E49D23C61B370042697E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6956E49C23C61B370042697E /* Assets.xcassets */; };
 		6956E4A023C61B370042697E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6956E49E23C61B370042697E /* LaunchScreen.storyboard */; };
+		6956E4A823C61FCC0042697E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6956E4A723C61FCC0042697E /* GoogleService-Info.plist */; };
+		8516A06C3BC5090BD76238D8 /* Pods_DogGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7C5A355149EC986A01F1A9 /* Pods_DogGram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B7C5A355149EC986A01F1A9 /* Pods_DogGram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogGram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		57FBA16D2F8090C4C0BD9354 /* Pods-DogGram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogGram.release.xcconfig"; path = "Target Support Files/Pods-DogGram/Pods-DogGram.release.xcconfig"; sourceTree = "<group>"; };
+		6097ABFBB30C26E5F6E8F2EA /* Pods-DogGram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogGram.debug.xcconfig"; path = "Target Support Files/Pods-DogGram/Pods-DogGram.debug.xcconfig"; sourceTree = "<group>"; };
 		6956E49023C61B360042697E /* DogGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6956E49323C61B360042697E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6956E49523C61B360042697E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +29,7 @@
 		6956E49C23C61B370042697E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6956E49F23C61B370042697E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6956E4A123C61B370042697E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6956E4A723C61FCC0042697E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8516A06C3BC5090BD76238D8 /* Pods_DogGram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				6956E49223C61B360042697E /* DogGram */,
 				6956E49123C61B360042697E /* Products */,
+				BB565F4AD9C6149A2C10F564 /* Pods */,
+				C427F4AD23117D302B83E031 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +65,7 @@
 		6956E49223C61B360042697E /* DogGram */ = {
 			isa = PBXGroup;
 			children = (
+				6956E4A723C61FCC0042697E /* GoogleService-Info.plist */,
 				6956E49323C61B360042697E /* AppDelegate.swift */,
 				6956E49523C61B360042697E /* SceneDelegate.swift */,
 				6956E49723C61B360042697E /* ViewController.swift */,
@@ -67,6 +77,24 @@
 			path = DogGram;
 			sourceTree = "<group>";
 		};
+		BB565F4AD9C6149A2C10F564 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6097ABFBB30C26E5F6E8F2EA /* Pods-DogGram.debug.xcconfig */,
+				57FBA16D2F8090C4C0BD9354 /* Pods-DogGram.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C427F4AD23117D302B83E031 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B7C5A355149EC986A01F1A9 /* Pods_DogGram.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6956E4A423C61B370042697E /* Build configuration list for PBXNativeTarget "DogGram" */;
 			buildPhases = (
+				D6FF17A475E3304BFA4BD7D3 /* [CP] Check Pods Manifest.lock */,
 				6956E48C23C61B360042697E /* Sources */,
 				6956E48D23C61B360042697E /* Frameworks */,
 				6956E48E23C61B360042697E /* Resources */,
+				24274CCE806F937E87443833 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,12 +156,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				6956E4A023C61B370042697E /* LaunchScreen.storyboard in Resources */,
+				6956E4A823C61FCC0042697E /* GoogleService-Info.plist in Resources */,
 				6956E49D23C61B370042697E /* Assets.xcassets in Resources */,
 				6956E49B23C61B360042697E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24274CCE806F937E87443833 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DogGram/Pods-DogGram-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DogGram/Pods-DogGram-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DogGram/Pods-DogGram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D6FF17A475E3304BFA4BD7D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DogGram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6956E48C23C61B360042697E /* Sources */ = {
@@ -282,6 +355,7 @@
 		};
 		6956E4A523C61B370042697E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6097ABFBB30C26E5F6E8F2EA /* Pods-DogGram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,7 +365,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DogGram.io;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DogGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -300,6 +374,7 @@
 		};
 		6956E4A623C61B370042697E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57FBA16D2F8090C4C0BD9354 /* Pods-DogGram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -309,7 +384,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.DogGram.io;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DogGram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
