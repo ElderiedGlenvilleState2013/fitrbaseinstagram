@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="DogGram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="DogGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -73,10 +73,26 @@
             </objects>
             <point key="canvasLocation" x="-465.21739130434787" y="179.46428571428569"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="erl-vl-wvk">
+            <objects>
+                <viewController id="VJp-CO-NIj" customClass="SettingsViewController" customModule="DogGram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hGW-xu-5c2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="xY3-gX-Iwl"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="s.circle.fill" catalog="system" id="zGp-ft-HsN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BBl-4D-MbL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1423" y="1282"/>
+        </scene>
         <!--Upload-->
         <scene sceneID="KcI-Y4-Bej">
             <objects>
-                <viewController id="PNp-D4-LSp" sceneMemberID="viewController">
+                <viewController id="PNp-D4-LSp" customClass="UploadViewController" customModule="DogGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HbX-zh-jaf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +108,7 @@
         <!--Feed-->
         <scene sceneID="tsK-W6-o2b">
             <objects>
-                <viewController id="qoA-mH-Ih2" sceneMemberID="viewController">
+                <viewController id="qoA-mH-Ih2" customClass="FeedViewController" customModule="DogGram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3XJ-LI-aii">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,6 +133,7 @@
                     <connections>
                         <segue destination="qoA-mH-Ih2" kind="relationship" relationship="viewControllers" id="wXf-VY-JVQ"/>
                         <segue destination="PNp-D4-LSp" kind="relationship" relationship="viewControllers" id="HWa-pV-8hK"/>
+                        <segue destination="VJp-CO-NIj" kind="relationship" relationship="viewControllers" id="yiG-CF-cwh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCm-nZ-ENo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -126,6 +143,7 @@
     </scenes>
     <resources>
         <image name="f.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="s.circle.fill" catalog="system" width="64" height="60"/>
         <image name="u.square.fill" catalog="system" width="64" height="56"/>
     </resources>
 </document>

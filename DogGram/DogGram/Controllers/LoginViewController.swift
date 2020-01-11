@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Firebase 
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailText: UITextField!
     
@@ -26,6 +27,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func signUpClicked(_ sender: Any) {
+        
+    
     }
 }
 
