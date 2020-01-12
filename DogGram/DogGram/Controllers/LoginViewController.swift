@@ -22,13 +22,45 @@ class LoginViewController: UIViewController {
 
 
     @IBAction func signInClicked(_ sender: Any) {
-        performSegue(withIdentifier: "toFeedVC", sender: nil)
+        
+        if emailText.text != "" && passwordText.text != "" {
+            Auth.auth().signIn(withEmail: emailText.text!, password: passwordText.text!) { (authData, error) in
+                if error != nil {
+                     self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                } else {
+                     self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                }
+            }
+        }
+        
+        
     }
     
     
     @IBAction func signUpClicked(_ sender: Any) {
         
-    
-    }
+        if  emailText.text != "" && passwordText.text !=  "" {
+            Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!) { (AuthDataResult, error) in
+                if error != nil {
+                    self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                } else {
+                    self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                }
+            }
+        } else {
+          makeAlert(titleInput: "Error", messageInput: "Username/password wrong ")
+        }
 }
+    
+    func makeAlert(titleInput: String, messageInput: String ) {
+        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+                  passwordText.backgroundColor = UIColor.red
+        emailText.backgroundColor = UIColor.red
+                  let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                  
+                  alert.addAction(okButton)
+                  present(alert, animated: true, completion: nil)
+        
+    }
 
+}

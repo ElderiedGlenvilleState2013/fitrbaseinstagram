@@ -19,14 +19,28 @@ class SettingsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func logoutClicked(_ sender: Any) {
+        
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "toLoginVC", sender: nil)
+        } catch {
+            print(error)
+            self.makeAlert(titleInput: "Error", messageInput: error.localizedDescription ?? "Error")
+            
+            
+        }
     }
-    */
+    
+    func makeAlert(titleInput: String, messageInput: String ) {
+        let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+            
+                  let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                  
+                  alert.addAction(okButton)
+                  present(alert, animated: true, completion: nil)
+        
+    }
+ 
 
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -18,6 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let currentUsers = Auth.auth().currentUser
+        
+        if currentUsers != nil {
+            let board = UIStoryboard(name: "Main", bundle: nil)
+            let tabbar = board.instantiateViewController(identifier: "tabbarStoryboard") as! UITabBarController
+            window?.rootViewController = tabbar
+            
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
