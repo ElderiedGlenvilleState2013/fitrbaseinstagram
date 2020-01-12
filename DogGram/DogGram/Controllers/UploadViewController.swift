@@ -29,10 +29,53 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @objc func chooseImage(){
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.sourceType = .photoLibrary
+        present(pickerController, animated: true, completion: nil)
         
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        imageView.image = info[.originalImage] as? UIImage
+        self.dismiss(animated: true, completion: nil)
+    }
 
+    func makeAlert(titleInput: String, messageInput: String ) {
+           let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)
+               
+                     let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+                     
+                     alert.addAction(okButton)
+                     present(alert, animated: true, completion: nil)
+           
+       }
+    
     @IBAction func uploadButtonClicked(_ sender: Any) {
+       
+        let storage = Storage.storage()
+        let storageReference = storage.reference()
+        
+        let mediaFolder = storageReference.child("media")
+        
+        if let data = imageView.image?.jpegData(compressionQuality: 0.5) {
+            
+            let uuid = UUID().uuidString
+            
+            let imagereference = mediaFolder.child("\(uuid).jpg")
+            imagereference.putData(data, metadata: nil) { (metaData, error) in
+                if error != nil {
+                    self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
+                } else {
+                    imagereference.downloadURL { (url, error) in
+                        
+                        if error == nil {
+                            let imageUrl = url?.absoluteString
+                            print(imageUrl)
+                        }
+                    }
+                }
+            }
+        }
+        
     }
     
 
