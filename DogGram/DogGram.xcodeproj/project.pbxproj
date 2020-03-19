@@ -18,6 +18,8 @@
 		DA79145023CA7CB200B0E5D7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79144F23CA7CB200B0E5D7 /* FeedViewController.swift */; };
 		DA79145223CA844600B0E5D7 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79145123CA844600B0E5D7 /* UploadViewController.swift */; };
 		DA79145423CA845C00B0E5D7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79145323CA845C00B0E5D7 /* SettingsViewController.swift */; };
+		DA830D7E2423286B004DBDE3 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA830D7D2423286B004DBDE3 /* CommentCell.swift */; };
+		DA830D80242328A2004DBDE3 /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA830D7F242328A2004DBDE3 /* CommentVC.swift */; };
 		DA8C82E923CC40BE0049081D /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8C82E823CC40BE0049081D /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		DA79144F23CA7CB200B0E5D7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		DA79145123CA844600B0E5D7 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		DA79145323CA845C00B0E5D7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DA830D7D2423286B004DBDE3 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		DA830D7F242328A2004DBDE3 /* CommentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		DA8C82E823CC40BE0049081D /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +114,7 @@
 				DA79144F23CA7CB200B0E5D7 /* FeedViewController.swift */,
 				DA79145123CA844600B0E5D7 /* UploadViewController.swift */,
 				DA79145323CA845C00B0E5D7 /* SettingsViewController.swift */,
+				DA830D7F242328A2004DBDE3 /* CommentVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8C82E823CC40BE0049081D /* FeedCell.swift */,
+				DA830D7D2423286B004DBDE3 /* CommentCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,10 +255,12 @@
 				DA8C82E923CC40BE0049081D /* FeedCell.swift in Sources */,
 				6956E49823C61B360042697E /* LoginViewController.swift in Sources */,
 				DA79145223CA844600B0E5D7 /* UploadViewController.swift in Sources */,
+				DA830D80242328A2004DBDE3 /* CommentVC.swift in Sources */,
 				6956E49423C61B360042697E /* AppDelegate.swift in Sources */,
 				DA79145023CA7CB200B0E5D7 /* FeedViewController.swift in Sources */,
 				6956E49623C61B360042697E /* SceneDelegate.swift in Sources */,
 				DA79145423CA845C00B0E5D7 /* SettingsViewController.swift in Sources */,
+				DA830D7E2423286B004DBDE3 /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S6TV694V53;
+				DEVELOPMENT_TEAM = N762D69GAN;
 				INFOPLIST_FILE = DogGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,7 +425,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S6TV694V53;
+				DEVELOPMENT_TEAM = N762D69GAN;
 				INFOPLIST_FILE = DogGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
