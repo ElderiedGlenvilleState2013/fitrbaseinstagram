@@ -344,9 +344,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W9l-5h-G9O">
-                                                    <rect key="frame" x="20" y="46" width="414" height="199"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Test..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W9l-5h-G9O">
+                                                    <rect key="frame" x="20" y="46" width="414" height="257"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="199" id="Q8T-Wl-5Ht"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="cdD-SC-lfY"/>
                                                         <constraint firstAttribute="width" constant="414" id="gct-I2-n3f"/>
                                                         <constraint firstAttribute="height" constant="199" id="izI-Rb-bGp"/>
                                                     </constraints>
@@ -381,9 +383,13 @@
                                                 <constraint firstItem="bri-uS-kxN" firstAttribute="leading" secondItem="aiz-eX-am6" secondAttribute="trailing" constant="33" id="Hql-M1-v4d"/>
                                                 <constraint firstItem="aiz-eX-am6" firstAttribute="top" secondItem="49N-MK-tru" secondAttribute="top" constant="2" id="JIr-mr-rme"/>
                                                 <constraint firstItem="W9l-5h-G9O" firstAttribute="leading" secondItem="49N-MK-tru" secondAttribute="leading" constant="20" symbolic="YES" id="L0X-HL-V03"/>
+                                                <constraint firstItem="W9l-5h-G9O" firstAttribute="leading" secondItem="49N-MK-tru" secondAttribute="leadingMargin" id="NGG-Rh-qp4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="W9l-5h-G9O" secondAttribute="bottom" constant="9" id="TBf-7s-Ixz"/>
                                                 <constraint firstItem="aiz-eX-am6" firstAttribute="leading" secondItem="lRs-2J-LDy" secondAttribute="trailing" constant="8" id="UgY-82-XHa"/>
                                                 <constraint firstAttribute="trailing" secondItem="W9l-5h-G9O" secondAttribute="trailing" constant="20" symbolic="YES" id="bJn-Yg-ZGc"/>
                                                 <constraint firstAttribute="bottom" secondItem="W9l-5h-G9O" secondAttribute="bottom" constant="20" symbolic="YES" id="gTP-fl-3sX"/>
+                                                <constraint firstItem="W9l-5h-G9O" firstAttribute="trailing" secondItem="49N-MK-tru" secondAttribute="trailingMargin" id="ojQ-Mj-QDq"/>
+                                                <constraint firstItem="W9l-5h-G9O" firstAttribute="top" secondItem="aiz-eX-am6" secondAttribute="bottom" constant="6" id="wR5-1e-91j"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -410,7 +416,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Comments" id="yIC-h2-rMb">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="9O5-eU-LIH"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="9O5-eU-LIH">
+                                            <connections>
+                                                <action selector="sendBtn:" destination="52Y-z8-3aP" id="Zdl-x4-6vq"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
