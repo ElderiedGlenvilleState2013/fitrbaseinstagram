@@ -25,6 +25,8 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(chooseImage))
         profileImg.addGestureRecognizer(gestureRecognizer)
         
+        
+        
     }
     
      @objc func chooseImage(){
