@@ -29,7 +29,9 @@ class LoginViewController: UIViewController {
                 if error != nil {
                      self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
                 } else {
+                    
                      self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                    //self.sendToFirebase()
                 }
             }
         }
@@ -43,9 +45,9 @@ class LoginViewController: UIViewController {
         let firestoreDB = Firestore.firestore()
         var firestoreRef : DocumentReference? = nil
         
-        let firestorePost = ["currentUserEmails" : Auth.auth().currentUser?.email , "useremail" : emailText.text ] as [String : Any]
+        let firestorePost = ["currentUserEmails" : Auth.auth().currentUser?.email , "username" : "","imageUrl": "", "userBio": "" , "currentSportTeam" : "", "following" : false, "followers" : 0] as [String : Any]
         
-        firestoreRef = firestoreDB.collection("Profiles").addDocument(data: firestorePost, completion: { (error) in
+        firestoreRef = firestoreDB.collection("Profile").addDocument(data: firestorePost, completion: { (error) in
             if error != nil {
                 self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Errror")
             }
@@ -62,7 +64,7 @@ class LoginViewController: UIViewController {
                 if error != nil {
                     self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
                 } else {
-                    self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                    self.performSegue(withIdentifier: "toCreateVC", sender: nil)
                 }
             }
         } else {

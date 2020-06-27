@@ -17,8 +17,10 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     var userCommentArray = [String]()
     var likeArray = [Int]()
     var userImageArray = [String]()
+    var profileImagesArray = [String]()
     var documentIdArray = [String]()
     
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +29,29 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
 
         // Do any additional setup after loading the view.
         getDataFromFirestore()
+        getProfilesFB()
+    }
+    
+    func getProfilesFB(){
+        let firestoreDB = Firestore.firestore()
+        
+        firestoreDB.collection("Profiles").addSnapshotListener { (snapshot, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                if snapshot?.isEmpty != true && snapshot != nil {
+                    self.profileImagesArray.removeAll(keepingCapacity: true)
+                    
+                    for docs in snapshot!.documents {
+                        if let profileImages = docs.get("imageUrl") as? String {
+                            self.profileImagesArray.append(profileImages)
+                            print(self.profileImagesArray)
+                        }
+                    }
+                    self.FeedTableView.reloadData()
+                }
+            }
+        }
     }
     
     func getDataFromFirestore() {
@@ -78,8 +103,9 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userEmailArray.count
+        return profileImagesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,6 +117,8 @@ class FeedViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.userImageView.sd_setImage(with: URL(string: self.userImageArray[indexPath.row]))
         cell.documentIdLabel.text = documentIdArray[indexPath.row]
         //cell.userImageView?.image = UIImage(named: "trash.png")
+        cell.profileImage.sd_setImage(with: URL(string: self.profileImagesArray[indexPath.row]))
+        
         return cell
         
     }

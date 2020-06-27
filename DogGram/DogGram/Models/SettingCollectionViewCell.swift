@@ -10,5 +10,5 @@ import UIKit
 
 class SettingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var userImg : UIImageView!
-    
+    @IBOutlet weak var userNames: UILabel!
 }

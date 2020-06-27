@@ -15,7 +15,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var documentIdLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
-    
+    @IBOutlet weak var profileImage : UIImageView!
     @IBOutlet weak var likeLabel: UILabel!
     
     override func awakeFromNib() {

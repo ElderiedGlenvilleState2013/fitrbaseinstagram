@@ -21,9 +21,10 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     
     @IBOutlet weak var settingsTable : UITableView!
     @IBOutlet weak var settingsCollectionView : UICollectionView!
-    
-    
+    var userNameArray = [String]()
+    var likePhotsArray = [String]()
 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,8 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
         settingsCollectionView.delegate = self
         settingsCollectionView.dataSource = self
         getFBData()
+        getTopPost()
+       
     }
     
 
@@ -49,14 +52,41 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
                     for docs in snapshot!.documents {
                         if let imgUrl = docs.get("imageUrl") as? String {
                             self.userImgArrays.append(imgUrl)
+                            print(self.userImgArrays)
                         }
                     }
                     
                     self.settingsTable.reloadData()
+                    self.settingsCollectionView.reloadData()
                 }
             }
         }
         
+    }
+    
+    func getTopPost(){
+        let fbCollection = fbDatabase.collection("Posts").whereField("likes", isGreaterThan: 10).addSnapshotListener { (snapshot, error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            } else {
+                if snapshot?.isEmpty != true && snapshot != nil {
+                    self.userNameArray.removeAll(keepingCapacity: true)
+                    self.likePhotsArray.removeAll(keepingCapacity: true)
+                    
+                    for docs in snapshot!.documents {
+                        if let photoUrl = docs.get("imageUrl") as? String {
+                            self.likePhotsArray.append(photoUrl)
+                        }
+                        
+                        if let names = docs.get("postedBy") as? String {
+                            self.userNameArray.append(names)
+                        }
+                    }
+                   // self.settingsTable.reloadData()
+                    self.settingsCollectionView.reloadData()
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,7 +97,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
            let cell = settingsTable.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! settingsCell
            
           
-        cell.gallaryImg.sd_setImage(with: URL(string: self.userImgArrays[indexPath.row]))
+        cell.settingImageView.sd_setImage(with: URL(string: self.userImgArrays[indexPath.row]))
            
            return cell
            
@@ -75,7 +105,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         userImgArrays.count
+        return  likePhotsArray.count
      }
      
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -83,12 +113,16 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
          let cell = settingsCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SettingCollectionViewCell
             
            
-         cell.userImg.sd_setImage(with: URL(string: self.userImgArrays[indexPath.row]))
+         cell.userImg.sd_setImage(with: URL(string: self.likePhotsArray[indexPath.row]))
+        
+        cell.userNames.text = userNameArray[indexPath.row]
             
             return cell
      }
     
-
+    @IBAction func profileScreenPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toProfileVC", sender: nil)
+    }
     @IBAction func logoutClicked(_ sender: Any) {
         
         do {
@@ -101,6 +135,8 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate, 
             
         }
     }
+    
+    
     
     func makeAlert(titleInput: String, messageInput: String ) {
         let alert = UIAlertController(title: titleInput, message: messageInput, preferredStyle: UIAlertController.Style.alert)

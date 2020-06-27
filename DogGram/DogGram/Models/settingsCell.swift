@@ -12,6 +12,7 @@ class settingsCell: UITableViewCell {
     
     @IBOutlet weak var gallaryImg : UIImageView!
     
+    @IBOutlet weak var settingImageView : UIImageView!
     
 
     override func awakeFromNib() {

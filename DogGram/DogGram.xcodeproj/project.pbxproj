@@ -19,6 +19,7 @@
 		69F143692482151100F209EC /* settingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F143682482151100F209EC /* settingsCell.swift */; };
 		69F1436B24821E9A00F209EC /* SettingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1436A24821E9A00F209EC /* SettingCollectionViewCell.swift */; };
 		8516A06C3BC5090BD76238D8 /* Pods_DogGram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B7C5A355149EC986A01F1A9 /* Pods_DogGram.framework */; };
+		DA0AF33E24948B070031D456 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0AF33D24948B060031D456 /* ProfileViewController.swift */; };
 		DA79145023CA7CB200B0E5D7 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79144F23CA7CB200B0E5D7 /* FeedViewController.swift */; };
 		DA79145223CA844600B0E5D7 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79145123CA844600B0E5D7 /* UploadViewController.swift */; };
 		DA79145423CA845C00B0E5D7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA79145323CA845C00B0E5D7 /* SettingsViewController.swift */; };
@@ -42,6 +43,7 @@
 		6997A1FA247D4D4200E443C8 /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		69F143682482151100F209EC /* settingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsCell.swift; sourceTree = "<group>"; };
 		69F1436A24821E9A00F209EC /* SettingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCollectionViewCell.swift; sourceTree = "<group>"; };
+		DA0AF33D24948B060031D456 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DA79144F23CA7CB200B0E5D7 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		DA79145123CA844600B0E5D7 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		DA79145323CA845C00B0E5D7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				DA79145123CA844600B0E5D7 /* UploadViewController.swift */,
 				DA79145323CA845C00B0E5D7 /* SettingsViewController.swift */,
 				6997A1FA247D4D4200E443C8 /* EditProfileVC.swift */,
+				DA0AF33D24948B060031D456 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				6956E49823C61B360042697E /* LoginViewController.swift in Sources */,
 				DA79145223CA844600B0E5D7 /* UploadViewController.swift in Sources */,
 				69F143692482151100F209EC /* settingsCell.swift in Sources */,
+				DA0AF33E24948B070031D456 /* ProfileViewController.swift in Sources */,
 				6997A1FB247D4D4200E443C8 /* EditProfileVC.swift in Sources */,
 				6956E49423C61B360042697E /* AppDelegate.swift in Sources */,
 				DA79145023CA7CB200B0E5D7 /* FeedViewController.swift in Sources */,

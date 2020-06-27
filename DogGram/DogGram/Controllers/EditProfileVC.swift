@@ -14,7 +14,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var nameOfSportTeamTextField: UITextField!
-    
+    @IBOutlet weak var userBioTextField : UITextField!
     
 
     override func viewDidLoad() {
@@ -78,7 +78,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                                   let firestoreDatabase = Firestore.firestore()
                                   var firestoreReference : DocumentReference? = nil
                                   
-                                let firestorePost = ["imageUrl" : imageUrl , "username" : self.usernameTextField.text, "sportteamname" : self.nameOfSportTeamTextField.text ]  as [String : Any]
+                                let firestorePost = ["currentUserEmail" : Auth.auth().currentUser?.email,"imageUrl" : imageUrl , "username" : self.usernameTextField.text, "sportteamname" : self.nameOfSportTeamTextField.text, "userBio" :  self.userBioTextField.text, "follow": false ]  as [String : Any]
                                   firestoreReference = firestoreDatabase.collection("Profiles").addDocument(data: firestorePost, completion: { (error) in
                                       
                                       if error != nil {
@@ -103,6 +103,7 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
 
     @IBAction func saveBtn(_ sender: Any) {
         sendTOFB()
+        shouldPerformSegue(withIdentifier: "toFeedVC", sender: nil)
     }
 
 }
