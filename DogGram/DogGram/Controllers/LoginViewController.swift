@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordText: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,23 +29,42 @@ class LoginViewController: UIViewController {
                 if error != nil {
                      self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
                 } else {
+                    
                      self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                    //self.sendToFirebase()
                 }
             }
         }
         
         
     }
-    
+    func sendToFirebase() {
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        
+        let firestoreDB = Firestore.firestore()
+        var firestoreRef : DocumentReference? = nil
+        
+        let firestorePost = ["currentUserEmails" : Auth.auth().currentUser?.email , "username" : "","imageUrl": "", "userBio": "" , "currentSportTeam" : "", "following" : false, "followers" : 0] as [String : Any]
+        
+        firestoreRef = firestoreDB.collection("Profile").addDocument(data: firestorePost, completion: { (error) in
+            if error != nil {
+                self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Errror")
+            }
+        })
+    }
     
     @IBAction func signUpClicked(_ sender: Any) {
         
         if  emailText.text != "" && passwordText.text !=  "" {
             Auth.auth().createUser(withEmail: emailText.text!, password: passwordText.text!) { (AuthDataResult, error) in
+                
+                self.sendToFirebase()
+                
                 if error != nil {
                     self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
                 } else {
-                    self.performSegue(withIdentifier: "toFeedVC", sender: nil)
+                    self.performSegue(withIdentifier: "toCreateVC", sender: nil)
                 }
             }
         } else {
