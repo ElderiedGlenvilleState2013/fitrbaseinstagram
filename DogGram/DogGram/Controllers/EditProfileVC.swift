@@ -78,8 +78,12 @@ class EditProfileVC: UIViewController, UIImagePickerControllerDelegate, UINaviga
                                   let firestoreDatabase = Firestore.firestore()
                                   var firestoreReference : DocumentReference? = nil
                                   
+                                firestoreDatabase.collection("test").document().setData(["dogname" : "loop", "age" : 3, "dage" : "42"])
+                                firestoreDatabase.collection("test").document().setData(["dogname" : "sloop", "age" : 34, "dage" : "52"])
+                                firestoreDatabase.collection("test").document().setData(["dogname" : "floop", "age" : 33, "dage" : "2"])
+                                
                                 let firestorePost = ["currentUserEmail" : Auth.auth().currentUser?.email,"imageUrl" : imageUrl , "username" : self.usernameTextField.text, "sportteamname" : self.nameOfSportTeamTextField.text, "userBio" :  self.userBioTextField.text, "follow": false ]  as [String : Any]
-                                  firestoreReference = firestoreDatabase.collection("Profiles").addDocument(data: firestorePost, completion: { (error) in
+                                firestoreReference = firestoreDatabase.collection("Profiles").addDocument(data: firestorePost, completion: { (error) in
                                       
                                       if error != nil {
                                           self.makeAlert(titleInput: "Error", messageInput: error?.localizedDescription ?? "Error")
